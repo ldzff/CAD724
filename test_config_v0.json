@@ -1,0 +1,26 @@
+{
+  "Version": 0,
+  "ProductName": "TestProduct",
+  "DxfFileContent": "",
+  "ModbusIpAddress": "127.0.0.1",
+  "ModbusPort": 502,
+  "CanvasState": {
+    "ScaleX": 1,
+    "ScaleY": -1,
+    "TranslateX": 0,
+    "TranslateY": 0
+  },
+  "Trajectories": [],
+  "SprayPasses": [],
+  "CurrentPassIndex": -1,
+  "SelectedTrajectoryIndexInCurrentPass": -1,
+  "TransformParameters": {
+    "OffsetX": 0,
+    "OffsetY": 0,
+    "OffsetZ": 0,
+    "RotationX": 0,
+    "RotationY": 0,
+    "RotationZ": 0
+  },
+  "Language": "中文"
+}

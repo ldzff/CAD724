@@ -9,6 +9,11 @@ namespace RobTeach.Models
     public class Configuration
     {
         /// <summary>
+        /// Gets or sets the version of the configuration file format.
+        /// </summary>
+        public int Version { get; set; } = 1;
+
+        /// <summary>
         /// Gets or sets the name of the product associated with this configuration.
         /// </summary>
         public string ProductName { get; set; } = string.Empty;

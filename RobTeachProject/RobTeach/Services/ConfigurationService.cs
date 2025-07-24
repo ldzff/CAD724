@@ -187,7 +187,12 @@ namespace RobTeach.Services
             try
             {
                 // Deserialize the JSON string back into a Configuration object.
-                return JsonSerializer.Deserialize<Configuration>(json, _jsonOptions);
+                var config = JsonSerializer.Deserialize<Configuration>(json, _jsonOptions);
+                if (config != null && config.Version < CurrentVersion)
+                {
+                    MigrateConfiguration(config);
+                }
+                return config;
             }
             catch (JsonException ex) // System.Text.Json.JsonException
             {
@@ -201,6 +206,13 @@ namespace RobTeach.Services
                 Debug.WriteLine($"[ConfigurationService] Unexpected error loading configuration from {filePath}: {ex.ToString()}");
                 return null;
             }
+        }
+
+        private void MigrateConfiguration(Configuration config)
+        {
+            // In the future, this method will handle migration from older versions.
+            // For now, we just log that a migration would have occurred.
+            Debug.WriteLine($"[ConfigurationService] Migrating configuration from version {config.Version} to {CurrentVersion}.");
         }
     }
 }
