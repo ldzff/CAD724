@@ -132,6 +132,8 @@ namespace RobTeach.Services
     /// </summary>
     public class ConfigurationService
     {
+        private const int CurrentVersion = 1;
+
         private static readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
@@ -156,6 +158,8 @@ namespace RobTeach.Services
         {
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+
+            config.Version = CurrentVersion;
 
             // Serialize the configuration object to a JSON string with indentation for readability.
             string json = JsonSerializer.Serialize(config, _jsonOptions);
